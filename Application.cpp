@@ -666,14 +666,14 @@ void Application::Cleanup()
 
 void Application::moveForward(int objectNumber)
 {
-	XMFLOAT3 position = _gameObjects[objectNumber]->GetPosition();
+	Vector3 position = _gameObjects[objectNumber]->GetPosition();
 	position.z -= 0.02f;
 	_gameObjects[objectNumber]->SetPosition(position);
 }
 
 void Application::moveBackward(int objectNumber)
 {
-	XMFLOAT3 position = _gameObjects[objectNumber-2]->GetPosition();
+	Vector3 position = _gameObjects[objectNumber-2]->GetPosition();
 	position.z += 0.02f;
 	_gameObjects[objectNumber-2]->SetPosition(position);
 }

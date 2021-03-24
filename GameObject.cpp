@@ -4,9 +4,9 @@
 GameObject::GameObject(string type, Geometry geometry, Material material) : _geometry(geometry), _type(type), _material(material)
 {
 	_parent = nullptr;
-	_position = XMFLOAT3();
-	_rotation = XMFLOAT3();
-	_scale = XMFLOAT3(1.0f, 1.0f, 1.0f);
+	_position = Vector3();
+	_rotation = Vector3();
+	_scale = Vector3(1.0f, 1.0f, 1.0f);
 
 	_textureRV = nullptr;
 }
@@ -24,11 +24,6 @@ void GameObject::Update(float t)
 
 	XMStoreFloat4x4(&_world, scale * rotation * translation);
 
-	char sz[1024] = { 0 };
-	sprintf_s(sz, "the number is %d \n", _position.x, _position.y, _position.z);
-	std::cout << _position.x;
-	OutputDebugStringA(sz);
-
 	if (_parent != nullptr)
 	{
 		XMStoreFloat4x4(&_world, this->GetWorldMatrix() * _parent->GetWorldMatrix());
@@ -44,4 +39,32 @@ void GameObject::Draw(ID3D11DeviceContext * pImmediateContext)
 	pImmediateContext->IASetIndexBuffer(_geometry.indexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
 	pImmediateContext->DrawIndexed(_geometry.numberOfIndices, 0, 0);
+}
+
+//Vector operators
+void Vector3::operator*=(float scalar)
+{
+	this->x* scalar;
+	this->y* scalar;
+	this->z* scalar;
+}
+void Vector3::operator+=(Vector3 vector)
+{
+	this->x + vector.x;
+	this->y + vector.y;
+	this->z + vector.z;
+}
+Vector3 Vector3::operator+(Vector3 vector)
+{
+	Vector3 sum;
+	sum = Vector3(this->x + vector.x, this->y + vector.y, this->z + vector.z);
+
+	return sum;
+}
+Vector3 Vector3::operator-(Vector3 vector)
+{
+	Vector3 sum;
+	sum = Vector3(this->x - vector.x, this->y - vector.y, this->z - vector.z);
+
+	return sum;
 }
