@@ -673,9 +673,9 @@ void Application::moveForward(int objectNumber)
 
 void Application::moveBackward(int objectNumber)
 {
-	Vector3 position = _gameObjects[objectNumber-2]->GetPosition();
+	Vector3 position = _gameObjects[objectNumber]->GetPosition();
 	position.z += 0.02f;
-	_gameObjects[objectNumber-2]->SetPosition(position);
+	_gameObjects[objectNumber]->SetPosition(position);
 }
 
 void Application::Update()
@@ -703,11 +703,11 @@ void Application::Update()
 
 	if (GetAsyncKeyState('3'))
 	{
-		moveBackward(3);
+		moveBackward(1);
 	}
 	if (GetAsyncKeyState('4'))
 	{
-		moveBackward(4);
+		moveBackward(2);
 	}
 	// Update camera
 	float angleAroundZ = XMConvertToRadians(_cameraOrbitAngleXZ);

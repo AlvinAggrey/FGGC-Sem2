@@ -7,7 +7,7 @@ GameObject::GameObject(string type, Geometry geometry, Material material) : _geo
 	_position = Vector3();
 	_rotation = Vector3();
 	_scale = Vector3(1.0f, 1.0f, 1.0f);
-
+	
 	_textureRV = nullptr;
 }
 
@@ -39,6 +39,25 @@ void GameObject::Draw(ID3D11DeviceContext * pImmediateContext)
 	pImmediateContext->IASetIndexBuffer(_geometry.indexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
 	pImmediateContext->DrawIndexed(_geometry.numberOfIndices, 0, 0);
+}
+
+//Vector Computations
+float Vector3::Normalize() 
+{}
+
+float Vector3::Magnitude() 
+{
+	return sqrtf((x * x) + (y * y) + (z * z));
+}
+
+Vector3 Vector3::DotProduct(Vector3 vector)
+{ 
+	return Vector3(this->x * vector.x, this->y * vector.y, this->z * vector.z); 
+}
+
+Vector3 Vector3::CrossProduct(Vector3 vector) 
+{
+	return Vector3( (y*vector.z - vector.y * z), (z * vector.x - vector.z * x), (x * vector.y - vector.x * y));
 }
 
 //Vector operators
