@@ -1,12 +1,3 @@
-﻿  GameObject.cpp
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(28,16): warning C4477: 'sprintf_s' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'double'
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(28,75): warning C4474: 'sprintf_s' : too many arguments passed for format string
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(28,75): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(18,31): warning C4100: 't': unreferenced formal parameter
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(50,9): warning C4552: '*': result of expression not used
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(51,9): warning C4552: '*': result of expression not used
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(52,9): warning C4552: '*': result of expression not used
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(56,10): warning C4552: '+': result of expression not used
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(57,10): warning C4552: '+': result of expression not used
-C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\GameObject.cpp(58,10): warning C4552: '+': result of expression not used
+﻿  Application.cpp
+C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\Application.cpp(687,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
   DX11 Framework.vcxproj -> C:\Users\alvin\OneDrive\Documents\University Projects\2020-2021\Sem02\FGGC\FGGC-Sem2\Debug\DX11 Framework.exe

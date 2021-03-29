@@ -220,3 +220,7 @@ ModelManifest.xml
 *.exe
 *.out
 *.app
+
+#custom stuff
+.vs/*
+
