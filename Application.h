@@ -141,6 +141,8 @@ private:
 	void moveBackward(int objectNumber);
 
 public:
+	#define NUMBER_OF_CUBES 1
+
 	Application();
 	~Application();
 

@@ -163,7 +163,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_gameObjects.push_back(gameObject);
 
-	for (auto i = 0; i < 5; i++)
+	for (auto i = 0; i < 3; i++)
 	{
 		gameObject = new GameObject("Cube " + i, cubeGeometry, shinyMaterial);
 		gameObject->SetScale(0.5f, 0.5f, 0.5f);
@@ -172,7 +172,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 		_gameObjects.push_back(gameObject);
 	}
-	gameObject = new GameObject("donut", herculesGeometry, shinyMaterial);
+	gameObject = new GameObject("Donut", herculesGeometry, shinyMaterial);
 	gameObject->SetScale(0.5f, 0.5f, 0.5f);
 	gameObject->SetPosition(-4.0f, 0.5f, 10.0f);
 	gameObject->SetTextureRV(_pTextureRV);
@@ -703,7 +703,7 @@ void Application::Update()
 
 	if (GetAsyncKeyState('3'))
 	{
-		moveBackward(1);
+		moveBackward(6);
 	}
 	if (GetAsyncKeyState('4'))
 	{

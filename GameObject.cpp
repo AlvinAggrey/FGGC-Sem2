@@ -1,6 +1,13 @@
 #include "GameObject.h"
 #include <iostream>
 
+enum GameObjectType
+{
+	PLANE,
+	DONUT,
+	CUBE
+};
+
 GameObject::GameObject(string type, Geometry geometry, Material material) : _geometry(geometry), _type(type), _material(material)
 {
 	_parent = nullptr;
@@ -43,7 +50,9 @@ void GameObject::Draw(ID3D11DeviceContext * pImmediateContext)
 
 //Vector Computations
 float Vector3::Normalize() 
-{}
+{
+	return 1.0f;
+}
 
 float Vector3::Magnitude() 
 {
