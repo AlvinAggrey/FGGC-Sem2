@@ -3,6 +3,7 @@
 #include <directxmath.h>
 #include <d3d11_1.h>
 #include <string>
+#include "Debug.h"
 
 using namespace DirectX;
 using namespace std;
@@ -75,6 +76,7 @@ public:
 	Vector3 GetRotation() const { return _rotation; }
 
 	string GetType() const { return _type; }
+	string GetGameObjectType() { return _gObjectType; }
 
 	Geometry GetGeometryData() const { return _geometry; }
 
@@ -97,11 +99,14 @@ private:
 	Vector3 _scale;
 
 	string _type;
+	string _gObjectType;
 
 	XMFLOAT4X4 _world;
 
 	Geometry _geometry;
 	Material _material;
+
+	Debug debug;
 
 	ID3D11ShaderResourceView * _textureRV;
 

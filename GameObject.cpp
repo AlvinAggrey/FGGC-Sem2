@@ -1,5 +1,7 @@
 #include "GameObject.h"
+
 #include <iostream>
+
 
 enum GameObjectType
 {
@@ -14,6 +16,7 @@ GameObject::GameObject(string type, Geometry geometry, Material material) : _geo
 	_position = Vector3();
 	_rotation = Vector3();
 	_scale = Vector3(1.0f, 1.0f, 1.0f);
+	_gObjectType = type;
 	
 	_textureRV = nullptr;
 }
@@ -30,7 +33,12 @@ void GameObject::Update(float t)
 	XMMATRIX translation = XMMatrixTranslation(_position.x, _position.y, _position.z);
 
 	XMStoreFloat4x4(&_world, scale * rotation * translation);
-
+	if (GetGameObjectType() == "Cube")
+	{
+		//char message = (t);
+		debug.OutputLog(std::to_string(t));
+			
+	}
 	if (_parent != nullptr)
 	{
 		XMStoreFloat4x4(&_world, this->GetWorldMatrix() * _parent->GetWorldMatrix());

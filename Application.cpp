@@ -165,7 +165,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	for (auto i = 0; i < 3; i++)
 	{
-		gameObject = new GameObject("Cube " + i, cubeGeometry, shinyMaterial);
+		gameObject = new GameObject("Cube" + i, cubeGeometry, shinyMaterial);
 		gameObject->SetScale(0.5f, 0.5f, 0.5f);
 		gameObject->SetPosition(-4.0f + (i * 2.0f), 0.5f, 10.0f);
 		gameObject->SetTextureRV(_pTextureRV);
@@ -681,7 +681,7 @@ void Application::moveBackward(int objectNumber)
 void Application::Update()
 {
     // Update our time
-    static float timeSinceStart = 0.0f;
+    static float deltaTime = 0.0f;
     static DWORD dwTimeStart = 0;
 
     DWORD dwTimeCur = GetTickCount64();
@@ -689,7 +689,15 @@ void Application::Update()
     if (dwTimeStart == 0)
         dwTimeStart = dwTimeCur;
 
-	timeSinceStart = (dwTimeCur - dwTimeStart) / 1000.0f;
+	//deltaTime = (dwTimeCur - dwTimeStart) / 1000.0f;
+	deltaTime += (dwTimeCur - dwTimeStart) / 1000.0f;
+
+	deltaTime += (dwTimeCur - dwTimeStart) / 1000.0f;
+	if (deltaTime < FPS_60) {
+		return;
+	}
+
+
 
 	// Move gameobject
 	if (GetAsyncKeyState('1'))
@@ -722,11 +730,20 @@ void Application::Update()
 	_camera->SetPosition(cameraPos);
 	_camera->Update();
 
+	for (int objectNumber = 0; objectNumber <=_gameObjects.size(); objectNumber++)
+	{
+		//_gameObjects[objectNumber]->Update(timeSinceStart);
+	}
+
+
 	// Update objects
 	for (auto gameObject : _gameObjects)
 	{
-		gameObject->Update(timeSinceStart);
+		gameObject->Update(deltaTime);
+		//if (gameObject->GetGameObjectType().compare("Donut")){gameObject->Update(timeSinceStart);}
 	}
+
+	deltaTime = deltaTime - FPS_60;
 }
 
 void Application::Draw()
